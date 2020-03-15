@@ -1,24 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const topScorers = [
+    {
+      name: 'Neil',
+      score: 5
+    }, {
+      name: 'John',
+      score: 3
+    }, {
+      name: 'Bob',
+      score: 2
+    }
+  ]
+
+  const scorers = topScorers.map(scorer => {
+    return (
+      <div style={{ 'display': 'flex', 'justify-content': 'space-between' }}>
+        <div style={{ 'width': '50%' }}>{scorer.name}</div>
+        <div style={{ 'width': '50%' }}>{scorer.score}</div>
+        <br/><br/>
+      </div>      
+    )
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ 'max-width': '600px', 'margin': '0 auto' }}>
+      <h1>Top Scorers</h1>
+      <hr />
+
+      <div style={{ 'display': 'flex' }}>
+        <div style={{ 'width': '50%' }}><strong>Name</strong></div>
+        <div style={{ 'width': '50%' }}><strong>Score</strong></div>
+      </div>
+
+      <br/>
+
+      {scorers}
+
     </div>
   );
 }
