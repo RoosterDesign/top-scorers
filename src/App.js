@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import Table from './components/Table'
+import styled from 'styled-components'
 
 function App() {
 
@@ -16,31 +17,17 @@ function App() {
     }
   ]
 
-  const scorers = topScorers.map(scorer => {
-    return (
-      <div style={{ 'display': 'flex', 'justify-content': 'space-between' }}>
-        <div style={{ 'width': '50%' }}>{scorer.name}</div>
-        <div style={{ 'width': '50%' }}>{scorer.score}</div>
-        <br/><br/>
-      </div>      
-    )
-  })
+  const PageWrap = styled.div`
+    margin: 0 auto;  
+    max-width: 600px;
+  `
 
   return (
-    <div style={{ 'max-width': '600px', 'margin': '0 auto' }}>
+    <PageWrap>
       <h1>Top Scorers</h1>
       <hr />
-
-      <div style={{ 'display': 'flex' }}>
-        <div style={{ 'width': '50%' }}><strong>Name</strong></div>
-        <div style={{ 'width': '50%' }}><strong>Score</strong></div>
-      </div>
-
-      <br/>
-
-      {scorers}
-
-    </div>
+      <Table topScorers={topScorers} />
+    </PageWrap>
   );
 }
 
